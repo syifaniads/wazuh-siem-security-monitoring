@@ -12,7 +12,16 @@ Implemented a centralized security monitoring environment using Wazuh with Grayl
 
 ## Short Portfolio Description
 
-Built and evaluated a Wazuh-based SIEM environment for centralized endpoint monitoring during an internship. Configured File Integrity Monitoring, vulnerability detection, endpoint enrollment, Graylog integration, MISP-based threat-intelligence workflows, and email alerting. Analyzed a documented monitoring window containing more than **663K security alerts**, including authentication, file-integrity, web-security, and malware/rootcheck-related events.
+Implemented and evaluated a Wazuh-based SIEM environment for centralized endpoint monitoring during an internship. Configured File Integrity Monitoring, vulnerability detection, endpoint enrollment, Graylog integration, MISP-based threat-intelligence workflows, and email alerting. Analyzed a documented monitoring window containing more than **663K security alerts**, including authentication, file-integrity, web-security, and malware/rootcheck-related events.
+
+## Public Evidence
+
+The public repository includes two sanitized screenshots as direct proof of the work:
+
+- [Wazuh Overview Dashboard](screenshots/wazuh-overview-dashboard-sanitized.png)
+- [MITRE ATT&CK Dashboard](screenshots/wazuh-mitre-attack-dashboard-sanitized.png)
+
+Supporting technical documentation is available in [`README.md`](README.md), [`EVIDENCE.md`](EVIDENCE.md), and the `docs/` directory.
 
 ## CV Version
 
@@ -59,7 +68,7 @@ A concise interview explanation can follow this order:
 1. **Problem:** security telemetry was distributed across endpoints and required centralized visibility.
 2. **Architecture:** endpoints send telemetry through Wazuh agents to the Wazuh monitoring stack; Graylog, MISP, and email alerting support analysis and operations.
 3. **Your contribution:** configuration, agent enrollment, FIM, vulnerability monitoring, log analysis, integration work, and documentation.
-4. **Evidence:** 663K+ alerts in the documented monitoring period and analysis across multiple event categories.
+4. **Evidence:** 663K+ alerts in the documented monitoring period plus sanitized Wazuh Overview and MITRE ATT&CK screenshots.
 5. **Engineering lesson:** an alert is not the same as a confirmed incident; context, baselining, false-positive review, and prioritization are necessary.
 
 ## Accuracy Note
