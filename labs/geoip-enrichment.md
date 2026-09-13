@@ -67,7 +67,7 @@ Index pattern: wazuh-alerts-*
 Geospatial field: GeoLocation.location
 ```
 
-A separate screenshot shows an enriched event plotted in the East Java area. This demonstrates that geographic fields were available to Wazuh Maps and could be used for visualization.
+A separate working screenshot shows an enriched event plotted in the East Java area. This demonstrates that geographic fields were available to Wazuh Maps and could be used for visualization.
 
 ```mermaid
 flowchart LR
@@ -86,18 +86,11 @@ flowchart LR
 6. Create a Wazuh Maps layer from `wazuh-alerts-*` using `GeoLocation.location`.
 7. Confirm enriched documents can be rendered as map points.
 
-## Suggested Portfolio Evidence
+## Public Portfolio Evidence
 
-Recommended paths once sanitized screenshots are added:
+The original working material includes both map and layer-configuration screenshots. They are **not included in the current public screenshot set** because the portfolio already has stronger high-level evidence and because additional captures increase the chance of exposing environment-specific data.
 
-```text
-screenshots/geoip/map-sanitized.png
-screenshots/geoip/layer-configuration-sanitized.png
-```
-
-Suggested caption:
-
-> **GeoIP-enriched event visualization.** Security alert data was plotted using the `GeoLocation.location` field to add geographic context during investigation.
+The configuration details supported by those screenshots are preserved above in text form. The public visual set is documented in [`../screenshots/README.md`](../screenshots/README.md).
 
 ## Security Value
 
@@ -114,4 +107,6 @@ Geolocation is **context, not proof of attacker identity or physical location**.
 
 ## Privacy & Repository Safety
 
-Do not publish real MaxMind credentials or raw internal event data. Portfolio examples should use placeholders and, where screenshots are added, redact internal addresses and organizational identifiers.
+Do not publish real MaxMind credentials or raw internal event data. Portfolio examples should use placeholders and, where screenshots are added in the future, redact internal addresses and organizational identifiers.
+
+See [`../EVIDENCE.md`](../EVIDENCE.md) for the repository-wide evidence policy.
