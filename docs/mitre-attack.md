@@ -14,24 +14,32 @@ The internship documentation describes ATT&CK as a framework that organizes adve
 
 The documented Wazuh views were used to review rule matches through this ATT&CK context.
 
-## Observed dashboard categories
+## Published Visual Evidence
 
-The available evidence shows ATT&CK-oriented views containing tactics such as:
+![Wazuh MITRE ATT&CK Dashboard](../screenshots/wazuh-mitre-attack-dashboard-sanitized.png)
 
-- Credential Access
-- Initial Access
-- Privilege Escalation
-- Defense Evasion
-- Persistence
-- Lateral Movement
+> **MITRE ATT&CK dashboard.** Wazuh rule matches reviewed through ATT&CK-oriented views such as top tactics, alert evolution, and rule-level distributions. The mappings provide investigation context and do not by themselves confirm compromise.
+
+The public screenshot is sanitized to remove environment-specific browser/asset identifiers while preserving the dashboard content and chart values.
+
+## Observed Dashboard Categories
+
+The published evidence shows ATT&CK-oriented views containing tactics such as:
+
+- Credential Access,
+- Initial Access,
+- Privilege Escalation,
+- Defense Evasion,
+- Persistence,
+- Lateral Movement.
 
 The internship working notes also discuss Discovery, Reconnaissance, and Impact in the ATT&CK analysis context.
 
 > These labels represent ATT&CK mappings associated with Wazuh rules and observed alerts. They are **not automatic proof that an attacker successfully completed those actions**.
 
-## Dashboard views
+## Dashboard Views
 
-The documented MITRE ATT&CK dashboard included several useful perspectives:
+The documented MITRE ATT&CK dashboard includes:
 
 - alert evolution over time,
 - top tactics,
@@ -40,7 +48,7 @@ The documented MITRE ATT&CK dashboard included several useful perspectives:
 
 This helps move from a raw-alert question — *"which rule fired?"* — toward an analyst question — *"what behavior or attack objective is this rule intended to represent?"*
 
-## Example interpretation workflow
+## Example Interpretation Workflow
 
 ```mermaid
 flowchart LR
@@ -53,7 +61,7 @@ flowchart LR
     F -->|No| H[Document benign or false-positive context]
 ```
 
-## Why the mapping is useful
+## Why the Mapping Is Useful
 
 ATT&CK context can support:
 
@@ -72,29 +80,12 @@ The working notes describe Defense Evasion as behavior intended to avoid or bypa
 - disabling security tools,
 - timestomping,
 - rootkit-related activity,
-- credential access performed in a stealthy manner.
+- credential-access activity performed in a stealthy manner.
 
-These are useful investigation themes, but the presence of a mapped alert still requires verification against the actual event, host context, user activity, and surrounding telemetry.
+These are investigation themes. The presence of a mapped alert still requires validation against the actual event, host context, user activity, and surrounding telemetry.
 
-## Visual evidence
+## Analyst Caution
 
-Recommended sanitized screenshot path:
+ATT&CK is most useful when combined with event context. A mapped rule should be treated as a detection signal requiring investigation rather than a definitive statement that a complete attacker tactic occurred.
 
-```text
-screenshots/wazuh/mitre-attack-dashboard-sanitized.png
-```
-
-A suitable caption is:
-
-> **MITRE ATT&CK dashboard.** Wazuh alerts were reviewed through ATT&CK-oriented views such as top tactics, alert evolution, and rule-level distributions. The mappings provide investigation context and do not by themselves confirm successful compromise.
-
-Before publishing the screenshot, redact:
-
-- internal dashboard URLs or IP addresses,
-- organization-specific endpoint names,
-- agent identifiers when they reveal infrastructure context,
-- browser tabs or unrelated internal systems visible in the capture.
-
-## Analyst caution
-
-ATT&CK is most useful when combined with event context. A mapped rule should be treated as a detection signal that requires investigation rather than a definitive statement that a complete attacker tactic occurred.
+For the overall evidence policy, see [`../EVIDENCE.md`](../EVIDENCE.md).
