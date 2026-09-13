@@ -1,0 +1,14 @@
+<!-- Sanitized portfolio example. Never commit the enrollment password itself. -->
+<ossec_config>
+  <auth>
+    <use_password>yes</use_password>
+  </auth>
+</ossec_config>
+
+<!-- Agent-side enrollment block example:
+<client>
+  <enrollment>
+    <authorization_pass_path>/var/ossec/etc/authd.pass</authorization_pass_path>
+  </enrollment>
+</client>
+-->
