@@ -1,87 +1,69 @@
 # Screenshot Evidence
 
-This directory is reserved for **sanitized visual evidence** from the internship project.
+This directory contains the **sanitized visual evidence** intentionally published with the portfolio case study.
 
-Do not upload raw production captures without reviewing them first. Several original screenshots contain private infrastructure addresses, endpoint names, or browser URLs.
+Only two screenshots are included publicly. This is deliberate: the goal is to provide strong, readable evidence without exposing unnecessary infrastructure details or flooding the repository with setup screenshots.
 
-## Recommended Structure
-
-```text
-screenshots/
-├── architecture/
-│   └── siem-architecture-sanitized.png
-├── wazuh/
-│   ├── overview-dashboard-sanitized.png
-│   ├── discover-events-sanitized.png
-│   ├── mitre-attack-dashboard-sanitized.png
-│   ├── vulnerability-dashboard-sanitized.png
-│   ├── security-activity-summary.png
-│   ├── top-alerts.png
-│   └── fim-analysis.png
-├── geoip/
-│   ├── map-sanitized.png
-│   └── layer-configuration-sanitized.png
-├── graylog/
-│   └── dashboard-sanitized.png
-├── misp/
-│   └── events-sanitized.png
-└── alerting/
-    └── email-alert-sanitized.png
-```
-
-## Priority Evidence
+## Published Evidence
 
 ### 1. Wazuh Overview Dashboard
 
-Use as a high-level proof that the monitoring environment was active.
+File: [`wazuh-overview-dashboard-sanitized.png`](wazuh-overview-dashboard-sanitized.png)
 
-Suggested caption:
+![Wazuh Overview Dashboard](wazuh-overview-dashboard-sanitized.png)
 
-> **Wazuh Overview dashboard.** Point-in-time evidence of monitored agents, alert severity distribution, and available endpoint-security, threat-intelligence, compliance, and container-monitoring modules.
+**What it demonstrates**
+
+- the Wazuh monitoring environment was active,
+- multiple agents were being monitored,
+- alerts were classified by severity,
+- endpoint-security and threat-intelligence modules were available from the dashboard.
+
+**Suggested caption**
+
+> **Wazuh Overview dashboard.** Point-in-time evidence of monitored agents, alert severity distribution, and the available endpoint-security and threat-intelligence capabilities.
+
+---
 
 ### 2. MITRE ATT&CK Dashboard
 
-Use to support [`../docs/mitre-attack.md`](../docs/mitre-attack.md).
+File: [`wazuh-mitre-attack-dashboard-sanitized.png`](wazuh-mitre-attack-dashboard-sanitized.png)
 
-Suggested caption:
+![Wazuh MITRE ATT&CK Dashboard](wazuh-mitre-attack-dashboard-sanitized.png)
 
-> **MITRE ATT&CK dashboard.** Wazuh alerts reviewed through ATT&CK-oriented views such as top tactics, alert evolution, and rule-level distributions. ATT&CK mappings provide analyst context and do not by themselves confirm compromise.
+**What it demonstrates**
 
-### 3. GeoIP Map
+- Wazuh alerts were reviewed through ATT&CK-oriented views,
+- the dashboard included top tactics, alert evolution, rule level by attack, and rule level by tactic,
+- selected rule matches were mapped into adversary-behavior context for investigation.
 
-Use to support [`../labs/geoip-enrichment.md`](../labs/geoip-enrichment.md).
+**Suggested caption**
 
-Suggested caption:
+> **MITRE ATT&CK dashboard.** Wazuh rule matches reviewed through ATT&CK-oriented views such as top tactics, alert evolution, and rule-level distributions. The mappings provide analyst context and do not by themselves confirm compromise.
 
-> **GeoIP-enriched event visualization.** Alert data from `wazuh-alerts-*` was plotted using `GeoLocation.location` to provide geographic context during investigation.
+## Why Other Screenshots Are Not Published
 
-### 4. Discover View
+The internship material contains additional dashboards and configuration captures for areas such as vulnerability detection, GeoIP mapping, Graylog, MISP, email alerting, File Integrity Monitoring, and security-activity summaries. Some of those captures expose environment-specific identifiers, infrastructure details, or add little value beyond the two screenshots already published.
 
-Suggested caption:
+Their findings are documented in text form elsewhere in the repository instead of publishing raw screenshots.
 
-> **Indexed Wazuh events.** The `wazuh-alerts-*` index was queried in Discover to validate that endpoint events were successfully ingested and searchable.
+See:
 
-### 5. Vulnerability Detection
+- [`../EVIDENCE.md`](../EVIDENCE.md)
+- [`../docs/vulnerability-detection.md`](../docs/vulnerability-detection.md)
+- [`../docs/mitre-attack.md`](../docs/mitre-attack.md)
+- [`../labs/geoip-enrichment.md`](../labs/geoip-enrichment.md)
 
-Prefer the populated vulnerability dashboard from the internship documentation rather than an empty pie chart or `No results found` view.
+## Redaction Standard
 
-Suggested caption:
+Before any future screenshot is added, review it for:
 
-> **Vulnerability Detection dashboard.** Point-in-time CVE findings grouped by severity to support vulnerability prioritization and remediation review.
+- internal or public infrastructure IP addresses,
+- internal URLs and hostnames,
+- endpoint or agent names tied to the organization,
+- email addresses and user identifiers,
+- credentials, API keys, tokens, cookies, or session values,
+- unrelated browser tabs exposing internal systems,
+- raw log data that identifies systems or users.
 
-## Redaction Rules
-
-Before publishing an image, redact:
-
-- internal IP addresses,
-- public infrastructure IPs when they identify the environment,
-- hostnames and endpoint names,
-- private dashboard URLs,
-- agent identifiers when they expose infrastructure context,
-- email addresses,
-- credentials, API keys, session values, or tokens,
-- unrelated browser tabs that reveal internal systems.
-
-Do not change chart values, alert counts, or other evidence merely to make the project appear stronger.
-
-See [`../EVIDENCE.md`](../EVIDENCE.md) for the full evidence guide and redaction checklist.
+Redaction may hide sensitive identifiers, but it must **not change alert counts, chart values, or the meaning of the evidence**.
