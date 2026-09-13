@@ -1,8 +1,34 @@
 # Wazuh SIEM Security Monitoring
 
-A sanitized engineering case study based on my internship work implementing and evaluating a centralized security monitoring environment using **Wazuh**, with supporting integrations for **Graylog**, **MISP**, and email alerting.
+A sanitized engineering case study based on my internship work implementing and evaluating a centralized security-monitoring environment using **Wazuh**, with supporting **Graylog**, **MISP**, and email-alerting workflows.
 
-> This repository intentionally excludes credentials, private infrastructure details, internal hostnames, internal IP addresses, and other sensitive organizational information. Example configurations use placeholders and generic identifiers.
+> **Portfolio scope:** this repository intentionally excludes credentials, private infrastructure details, raw production logs, internal hostnames, private IP addresses, and other organization-specific identifiers. Configuration snippets use placeholders or generic values.
+
+## Highlights
+
+- Centralized endpoint and server security monitoring with Wazuh.
+- File Integrity Monitoring (FIM), vulnerability visibility, authentication analysis, and alert review.
+- Graylog integration for additional log exploration and visualization.
+- MISP-based threat-intelligence workflow.
+- Email alerting and MITRE ATT&CK-oriented analysis.
+- A documented monitoring window containing **663,762 security alerts**.
+- Public evidence is intentionally limited to a small set of sanitized screenshots rather than raw infrastructure captures.
+
+## Visual Evidence
+
+### Wazuh Overview Dashboard
+
+![Wazuh Overview Dashboard](screenshots/wazuh-overview-dashboard-sanitized.png)
+
+Point-in-time view of the monitoring environment showing active agents, alert severity distribution, and the available endpoint-security and threat-intelligence modules.
+
+### MITRE ATT&CK Dashboard
+
+![Wazuh MITRE ATT&CK Dashboard](screenshots/wazuh-mitre-attack-dashboard-sanitized.png)
+
+ATT&CK-oriented analysis of Wazuh rule matches through views such as alert evolution, top tactics, rule level by attack, and rule level by tactic. These mappings provide investigation context and are **not** automatic proof of successful compromise.
+
+More detail: [`EVIDENCE.md`](EVIDENCE.md) and [`docs/mitre-attack.md`](docs/mitre-attack.md).
 
 ## Project Summary
 
@@ -10,18 +36,20 @@ The project focused on improving visibility into endpoint and server security ev
 
 Core capabilities documented in the final implementation include:
 
-- Wazuh-based SIEM monitoring
-- Endpoint agent enrollment and centralized event collection
-- File Integrity Monitoring (FIM)
-- Vulnerability detection
-- Security log analysis and alert review
-- Graylog integration for centralized log visualization and analysis
-- MISP integration for threat-intelligence workflows
-- Email alert notification
-- MITRE ATT&CK mapping for selected security activities
-- Security and compliance-oriented reporting
+- Wazuh-based SIEM monitoring,
+- endpoint agent enrollment and centralized event collection,
+- File Integrity Monitoring,
+- vulnerability detection,
+- security log analysis and alert review,
+- Graylog integration,
+- MISP threat-intelligence workflow,
+- email alert notification,
+- MITRE ATT&CK mapping for selected security activity,
+- security and compliance-oriented reporting.
 
 ## Architecture
+
+The diagram below is a sanitized logical view rather than the original network topology.
 
 ```mermaid
 flowchart TD
@@ -45,14 +73,14 @@ See [`architecture/architecture.md`](architecture/architecture.md) for the desig
 
 - Configured and operated a Wazuh-based centralized monitoring environment.
 - Enrolled endpoints and validated event delivery to the manager.
-- Configured File Integrity Monitoring to detect changes to monitored system and application files.
+- Configured File Integrity Monitoring for monitored system and application paths.
 - Enabled vulnerability detection using endpoint inventory data.
-- Reviewed authentication, file integrity, malware/rootkit, and web-related security alerts.
+- Reviewed authentication, file-integrity, malware/rootcheck, and web-related security alerts.
 - Integrated Wazuh-generated data with Graylog for additional log management and visualization.
 - Used MISP as part of the threat-intelligence workflow.
-- Configured email-based alert notifications.
-- Mapped selected alert categories to MITRE ATT&CK tactics/techniques.
-- Reviewed Wazuh-generated compliance-oriented reports including PCI DSS, GDPR, HIPAA, TSC, and NIST 800-53 mappings.
+- Configured email-based alert notification.
+- Mapped selected alert categories to MITRE ATT&CK tactics and techniques.
+- Reviewed Wazuh-generated compliance mappings including PCI DSS, GDPR, HIPAA, TSC, and NIST 800-53.
 
 ## Monitoring Snapshot
 
@@ -60,50 +88,43 @@ One documented monitoring window contained:
 
 | Metric | Observed value |
 |---|---:|
-| Total security alerts | 663,762 |
-| Authentication successes | 37,433 |
-| Authentication failures | 2,852 |
-| Alerts at level 12 or above | 6 |
+| Total security alerts | **663,762** |
+| Authentication successes | **37,433** |
+| Authentication failures | **2,852** |
+| Alerts at level 12 or above | **6** |
 
-Examples of rule-triggered activity included:
+Examples of rule-triggered activity included authentication failures, CMS login/brute-force indicators, web-server error patterns, SQL-injection attempt alerts, Shellshock-related alerts, file/registry integrity changes, rootcheck/possible-rootkit alerts, and Wazuh agent connectivity or queue events.
 
-- multiple authentication failures,
-- CMS login attempts and brute-force indicators,
-- web server error patterns,
-- SQL injection attempt alerts,
-- Shellshock-related alerts,
-- file and registry integrity changes,
-- rootcheck / possible rootkit alerts,
-- Wazuh agent queue and connectivity events.
+**Interpretation note:** these values describe SIEM rule matches and monitoring observations. A triggered rule is not automatically a confirmed incident.
 
-**Important:** these are SIEM rule matches and monitoring observations, not automatically confirmed security incidents. Alert context must be investigated before classifying an event as malicious.
+## Additional Point-in-Time Evidence
 
-## Additional Point-in-Time Dashboard Evidence
+The internship material also contains snapshots showing:
 
-Reviewed screenshots from the internship material also show:
-
-- **9 active agents** in one Wazuh Overview snapshot,
+- **9 active agents** in one Wazuh Overview view,
 - a 24-hour severity view containing **3 critical**, **1 high**, **1,825 medium**, and **60,940 low-severity** alerts,
-- a populated Vulnerability Detection view with **3 critical**, **13 high**, **16 medium**, **2 low**, and **45 pending-evaluation** findings,
+- a populated Vulnerability Detection view containing **3 critical**, **13 high**, **16 medium**, **2 low**, and **45 pending-evaluation** findings,
 - Wazuh Maps configured from `wazuh-alerts-*` using `GeoLocation.location`,
-- MITRE ATT&CK-oriented views covering tactics such as Credential Access, Initial Access, Privilege Escalation, Defense Evasion, Persistence, and Lateral Movement.
+- ATT&CK-oriented views containing tactics such as Credential Access, Initial Access, Privilege Escalation, Defense Evasion, Persistence, and Lateral Movement.
 
-These are point-in-time views and should not be interpreted as permanent project totals or proof of confirmed compromise.
+These are point-in-time views rather than permanent project totals.
 
 ## Core Documentation
 
-- [Implementation Overview](docs/implementation-overview.md)
-- [Architecture](architecture/architecture.md)
-- [File Integrity Monitoring](docs/file-integrity-monitoring.md)
-- [Vulnerability Detection](docs/vulnerability-detection.md)
-- [MITRE ATT&CK Mapping](docs/mitre-attack.md)
-- [Graylog Integration](docs/graylog-integration.md)
-- [MISP Integration](docs/misp-integration.md)
-- [Monitoring & Security Analysis](docs/monitoring-analysis.md)
+| Area | Documentation |
+|---|---|
+| Implementation | [Implementation Overview](docs/implementation-overview.md) |
+| Architecture | [SIEM Architecture](architecture/architecture.md) |
+| File integrity | [File Integrity Monitoring](docs/file-integrity-monitoring.md) |
+| Vulnerability visibility | [Vulnerability Detection](docs/vulnerability-detection.md) |
+| ATT&CK analysis | [MITRE ATT&CK Mapping](docs/mitre-attack.md) |
+| Log management | [Graylog Integration](docs/graylog-integration.md) |
+| Threat intelligence | [MISP Integration](docs/misp-integration.md) |
+| Monitoring findings | [Monitoring & Security Analysis](docs/monitoring-analysis.md) |
 
 ## Additional Security Labs
 
-The internship working notes covered additional integrations and experiments. These are intentionally separated from the final implementation evidence.
+The working notes covered additional integrations and experiments. They are kept separate so the repository does not imply that every explored item was part of the final deployed monitoring stack.
 
 - [Suricata IDS/IPS Integration](labs/suricata-integration.md)
 - [Security Configuration Assessment](labs/security-configuration-assessment.md)
@@ -114,13 +135,17 @@ The internship working notes covered additional integrations and experiments. Th
 - [VirusTotal Integration](labs/virustotal-integration.md)
 - [Index Lifecycle Management](labs/index-lifecycle-management.md)
 
-See the [Additional Security Labs index](labs/README.md) for the evidence classification used in this repository.
+See [`labs/README.md`](labs/README.md) for the evidence classification used in this repository.
 
-## Evidence & Portfolio Use
+## Sanitized Configuration Examples
 
-- [`EVIDENCE.md`](EVIDENCE.md) — reviewed screenshots, suggested captions, evidence selection, and redaction checklist.
-- [`screenshots/`](screenshots/README.md) — planned structure for sanitized visual evidence.
-- [`PORTFOLIO.md`](PORTFOLIO.md) — project descriptions ready to adapt for a CV, personal website, LinkedIn, or application form.
+Example snippets are available under [`configs/wazuh/`](configs/wazuh/):
+
+- `fim-example.xml`
+- `vulnerability-detection.xml`
+- `alerting-example.xml`
+
+They are illustrative portfolio examples, not drop-in production configurations.
 
 ## Repository Structure
 
@@ -151,23 +176,27 @@ See the [Additional Security Labs index](labs/README.md) for the evidence classi
 │   ├── active-response.md
 │   ├── virustotal-integration.md
 │   └── index-lifecycle-management.md
-├── configs/
-│   └── wazuh/
-│       ├── fim-example.xml
-│       ├── vulnerability-detection.xml
-│       └── alerting-example.xml
+├── configs/wazuh/
+│   ├── fim-example.xml
+│   ├── vulnerability-detection.xml
+│   └── alerting-example.xml
 ├── screenshots/
-│   └── README.md
+│   ├── README.md
+│   ├── wazuh-overview-dashboard-sanitized.png
+│   └── wazuh-mitre-attack-dashboard-sanitized.png
 └── reports/
     └── README.md
 ```
 
-## Security & Privacy
+## Evidence, Security, and Portfolio Use
 
-This repository is a **sanitized portfolio reconstruction**. It does not publish raw production logs, credentials, organization-specific endpoint names, private infrastructure addresses, or confidential operational details.
-
-Read [`SECURITY.md`](SECURITY.md), [`DISCLAIMER.md`](DISCLAIMER.md), and [`EVIDENCE.md`](EVIDENCE.md) before reusing configurations or adding screenshots.
+- [`EVIDENCE.md`](EVIDENCE.md) — explains what the public screenshots demonstrate and how evidence is sanitized.
+- [`screenshots/README.md`](screenshots/README.md) — documents the two published visual artifacts.
+- [`reports/README.md`](reports/README.md) — explains why raw monitoring reports are not public.
+- [`SECURITY.md`](SECURITY.md) — repository security and sanitization guidance.
+- [`DISCLAIMER.md`](DISCLAIMER.md) — scope and reuse limitations.
+- [`PORTFOLIO.md`](PORTFOLIO.md) — concise project copy for a CV, website, LinkedIn, or application form.
 
 ## Portfolio Description
 
-> Implemented a centralized security monitoring environment using Wazuh with Graylog and MISP integrations. Configured file integrity monitoring, vulnerability detection, log analysis, and alerting, and analyzed more than 663K security events while mapping selected activities to MITRE ATT&CK.
+> Implemented a centralized security-monitoring environment using Wazuh with Graylog and MISP integrations. Configured file-integrity monitoring, vulnerability detection, log analysis, and alerting, and analyzed more than 663K security events while mapping selected activities to MITRE ATT&CK.
