@@ -1,0 +1,48 @@
+# Environment and secret files
+.env
+.env.*
+!.env.example
+secrets/
+secret/
+credentials/
+*.secret
+
+# Private keys and certificate bundles
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Logs and raw monitoring exports
+*.log
+logs/
+raw-logs/
+raw-reports/
+exports/
+
+# Local databases / state
+*.db
+*.sqlite
+*.sqlite3
+
+# Backups and temporary files
+*.bak
+*.backup
+*.tmp
+*.swp
+*.swo
+*~
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Archives that may accidentally contain raw evidence
+*.zip
+*.tar
+*.tar.gz
+*.tgz
