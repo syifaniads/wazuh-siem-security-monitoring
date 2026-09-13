@@ -77,11 +77,44 @@ Examples of rule-triggered activity included:
 
 **Important:** these are SIEM rule matches and monitoring observations, not automatically confirmed security incidents. Alert context must be investigated before classifying an event as malicious.
 
+## Core Documentation
+
+- [Implementation Overview](docs/implementation-overview.md)
+- [Architecture](architecture/architecture.md)
+- [File Integrity Monitoring](docs/file-integrity-monitoring.md)
+- [Vulnerability Detection](docs/vulnerability-detection.md)
+- [Graylog Integration](docs/graylog-integration.md)
+- [MISP Integration](docs/misp-integration.md)
+- [Monitoring & Security Analysis](docs/monitoring-analysis.md)
+
+## Additional Security Labs
+
+The internship working notes covered additional integrations and experiments. These are intentionally separated from the final implementation evidence.
+
+- [Suricata IDS/IPS Integration](labs/suricata-integration.md)
+- [Security Configuration Assessment](labs/security-configuration-assessment.md)
+- [ClamAV Integration](labs/clamav-integration.md)
+- [Docker Monitoring](labs/docker-monitoring.md)
+- [GeoIP Enrichment](labs/geoip-enrichment.md)
+- [Active Response](labs/active-response.md)
+- [VirusTotal Integration](labs/virustotal-integration.md)
+- [Index Lifecycle Management](labs/index-lifecycle-management.md)
+
+See the [Additional Security Labs index](labs/README.md) for the evidence classification used in this repository.
+
+## Evidence & Portfolio Use
+
+- [`EVIDENCE.md`](EVIDENCE.md) — recommended screenshots, evidence selection, and redaction checklist.
+- [`screenshots/`](screenshots/README.md) — reserved for sanitized visual evidence.
+- [`PORTFOLIO.md`](PORTFOLIO.md) — project descriptions ready to adapt for a CV, personal website, LinkedIn, or application form.
+
 ## Repository Structure
 
 ```text
 .
 ├── README.md
+├── EVIDENCE.md
+├── PORTFOLIO.md
 ├── DISCLAIMER.md
 ├── SECURITY.md
 ├── architecture/
@@ -94,37 +127,31 @@ Examples of rule-triggered activity included:
 │   ├── misp-integration.md
 │   └── monitoring-analysis.md
 ├── labs/
-│   └── README.md
+│   ├── README.md
+│   ├── suricata-integration.md
+│   ├── security-configuration-assessment.md
+│   ├── clamav-integration.md
+│   ├── docker-monitoring.md
+│   ├── geoip-enrichment.md
+│   ├── active-response.md
+│   ├── virustotal-integration.md
+│   └── index-lifecycle-management.md
 ├── configs/
 │   └── wazuh/
 │       ├── fim-example.xml
 │       ├── vulnerability-detection.xml
 │       └── alerting-example.xml
+├── screenshots/
+│   └── README.md
 └── reports/
     └── README.md
 ```
-
-## Core Documentation
-
-- [Implementation overview](docs/implementation-overview.md)
-- [Architecture](architecture/architecture.md)
-- [File Integrity Monitoring](docs/file-integrity-monitoring.md)
-- [Vulnerability Detection](docs/vulnerability-detection.md)
-- [Graylog Integration](docs/graylog-integration.md)
-- [MISP Integration](docs/misp-integration.md)
-- [Monitoring & Security Analysis](docs/monitoring-analysis.md)
-
-## Additional Labs
-
-My internship notes also covered additional security integrations and experiments such as Suricata, ClamAV, Security Configuration Assessment, Docker monitoring, GeoIP enrichment, Active Response, VirusTotal, archive management, and index lifecycle management.
-
-These are separated under [`labs/`](labs/README.md) because the available final report does not establish every item as part of the final deployed production monitoring stack.
 
 ## Security & Privacy
 
 This repository is a **sanitized portfolio reconstruction**. It does not publish raw production logs, credentials, organization-specific endpoint names, private infrastructure addresses, or confidential operational details.
 
-Read [`SECURITY.md`](SECURITY.md) and [`DISCLAIMER.md`](DISCLAIMER.md) before reusing any configuration examples.
+Read [`SECURITY.md`](SECURITY.md), [`DISCLAIMER.md`](DISCLAIMER.md), and [`EVIDENCE.md`](EVIDENCE.md) before reusing configurations or adding screenshots.
 
 ## Portfolio Description
 
