@@ -36,6 +36,7 @@ flowchart TD
     H --> H2[File Integrity Monitoring]
     H --> H3[Vulnerability Events]
     H --> H4[Web Security Alerts]
+    H --> H5[MITRE ATT&CK Context]
 ```
 
 See [`architecture/architecture.md`](architecture/architecture.md) for the design rationale and data flow.
@@ -66,16 +67,28 @@ One documented monitoring window contained:
 
 Examples of rule-triggered activity included:
 
-- multiple authentication failures
-- CMS login attempts and brute-force indicators
-- web server error patterns
-- SQL injection attempt alerts
-- Shellshock-related alerts
-- file and registry integrity changes
-- rootcheck / possible rootkit alerts
-- Wazuh agent queue and connectivity events
+- multiple authentication failures,
+- CMS login attempts and brute-force indicators,
+- web server error patterns,
+- SQL injection attempt alerts,
+- Shellshock-related alerts,
+- file and registry integrity changes,
+- rootcheck / possible rootkit alerts,
+- Wazuh agent queue and connectivity events.
 
 **Important:** these are SIEM rule matches and monitoring observations, not automatically confirmed security incidents. Alert context must be investigated before classifying an event as malicious.
+
+## Additional Point-in-Time Dashboard Evidence
+
+Reviewed screenshots from the internship material also show:
+
+- **9 active agents** in one Wazuh Overview snapshot,
+- a 24-hour severity view containing **3 critical**, **1 high**, **1,825 medium**, and **60,940 low-severity** alerts,
+- a populated Vulnerability Detection view with **3 critical**, **13 high**, **16 medium**, **2 low**, and **45 pending-evaluation** findings,
+- Wazuh Maps configured from `wazuh-alerts-*` using `GeoLocation.location`,
+- MITRE ATT&CK-oriented views covering tactics such as Credential Access, Initial Access, Privilege Escalation, Defense Evasion, Persistence, and Lateral Movement.
+
+These are point-in-time views and should not be interpreted as permanent project totals or proof of confirmed compromise.
 
 ## Core Documentation
 
@@ -83,6 +96,7 @@ Examples of rule-triggered activity included:
 - [Architecture](architecture/architecture.md)
 - [File Integrity Monitoring](docs/file-integrity-monitoring.md)
 - [Vulnerability Detection](docs/vulnerability-detection.md)
+- [MITRE ATT&CK Mapping](docs/mitre-attack.md)
 - [Graylog Integration](docs/graylog-integration.md)
 - [MISP Integration](docs/misp-integration.md)
 - [Monitoring & Security Analysis](docs/monitoring-analysis.md)
@@ -104,8 +118,8 @@ See the [Additional Security Labs index](labs/README.md) for the evidence classi
 
 ## Evidence & Portfolio Use
 
-- [`EVIDENCE.md`](EVIDENCE.md) — recommended screenshots, evidence selection, and redaction checklist.
-- [`screenshots/`](screenshots/README.md) — reserved for sanitized visual evidence.
+- [`EVIDENCE.md`](EVIDENCE.md) — reviewed screenshots, suggested captions, evidence selection, and redaction checklist.
+- [`screenshots/`](screenshots/README.md) — planned structure for sanitized visual evidence.
 - [`PORTFOLIO.md`](PORTFOLIO.md) — project descriptions ready to adapt for a CV, personal website, LinkedIn, or application form.
 
 ## Repository Structure
@@ -123,6 +137,7 @@ See the [Additional Security Labs index](labs/README.md) for the evidence classi
 │   ├── implementation-overview.md
 │   ├── file-integrity-monitoring.md
 │   ├── vulnerability-detection.md
+│   ├── mitre-attack.md
 │   ├── graylog-integration.md
 │   ├── misp-integration.md
 │   └── monitoring-analysis.md
