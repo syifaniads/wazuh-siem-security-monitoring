@@ -16,12 +16,22 @@ They are listed separately here to avoid overstating what was part of the final 
 | [Active Response](active-response.md) | Rule-triggered automated response concept |
 | [VirusTotal Integration](virustotal-integration.md) | File reputation enrichment from FIM events |
 | [Index Lifecycle Management](index-lifecycle-management.md) | Hot/warm/delete lifecycle for Wazuh alert indices |
+| [Wazuh Archives](wazuh-archives.md) | Retaining events beyond normal alert-threshold output |
 
-The original working notes also covered endpoint enrollment with password authentication, Wazuh archives, SMTP-based alerting, and additional Graylog/MISP setup notes. Some of those topics are already represented in the core documentation or may be added as separate labs later.
+## Topics Represented Elsewhere
+
+Some working-note topics are intentionally documented outside `labs/` because they are part of the core case-study narrative:
+
+- endpoint enrollment → [`../docs/agent-enrollment.md`](../docs/agent-enrollment.md)
+- email alerting → [`../docs/email-alerting.md`](../docs/email-alerting.md)
+- Graylog → [`../docs/graylog-integration.md`](../docs/graylog-integration.md)
+- MISP → [`../docs/misp-integration.md`](../docs/misp-integration.md)
+
+This avoids duplicating the same material in multiple places.
 
 ## Evidence Classification
 
-These topics are best described as **labs, implementation notes, or explored integrations** unless separately validated by final deployment evidence.
+These lab topics are best described as **labs, implementation notes, or explored integrations** unless separately validated by final deployment evidence.
 
 Each lab is written using a consistent engineering format:
 
@@ -33,8 +43,8 @@ Each lab is written using a consistent engineering format:
 6. Security value
 7. Limitations / operational considerations
 
-This keeps the repository useful while preserving a clear boundary between final implementation evidence and experimental work.
+This preserves a clear boundary between final implementation evidence and experimental or exploratory work.
 
 ## Safe Reuse
 
-All values that could identify the original environment should be replaced with placeholders. Do not commit credentials, API keys, internal hostnames, internal IP addresses, or raw production logs.
+All values that could identify the original environment should be replaced with placeholders. Do not commit credentials, API keys, internal hostnames, internal IP addresses, raw production logs, or archive exports containing sensitive telemetry.
