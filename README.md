@@ -7,6 +7,7 @@ A sanitized engineering case study based on my internship work implementing and 
 ## Highlights
 
 - Centralized endpoint and server security monitoring with Wazuh.
+- Agent enrollment and centralized event collection.
 - File Integrity Monitoring (FIM), vulnerability visibility, authentication analysis, and alert review.
 - Graylog integration for additional log exploration and visualization.
 - MISP-based threat-intelligence workflow.
@@ -115,11 +116,13 @@ These are point-in-time views rather than permanent project totals.
 |---|---|
 | Implementation | [Implementation Overview](docs/implementation-overview.md) |
 | Architecture | [SIEM Architecture](architecture/architecture.md) |
+| Agent onboarding | [Wazuh Agent Enrollment](docs/agent-enrollment.md) |
 | File integrity | [File Integrity Monitoring](docs/file-integrity-monitoring.md) |
 | Vulnerability visibility | [Vulnerability Detection](docs/vulnerability-detection.md) |
 | ATT&CK analysis | [MITRE ATT&CK Mapping](docs/mitre-attack.md) |
 | Log management | [Graylog Integration](docs/graylog-integration.md) |
 | Threat intelligence | [MISP Integration](docs/misp-integration.md) |
+| Alert delivery | [Email Alerting](docs/email-alerting.md) |
 | Monitoring findings | [Monitoring & Security Analysis](docs/monitoring-analysis.md) |
 
 ## Additional Security Labs
@@ -134,6 +137,7 @@ The working notes covered additional integrations and experiments. They are kept
 - [Active Response](labs/active-response.md)
 - [VirusTotal Integration](labs/virustotal-integration.md)
 - [Index Lifecycle Management](labs/index-lifecycle-management.md)
+- [Wazuh Archives](labs/wazuh-archives.md)
 
 See [`labs/README.md`](labs/README.md) for the evidence classification used in this repository.
 
@@ -141,9 +145,11 @@ See [`labs/README.md`](labs/README.md) for the evidence classification used in t
 
 Example snippets are available under [`configs/wazuh/`](configs/wazuh/):
 
+- `agent-enrollment-example.xml`
 - `fim-example.xml`
 - `vulnerability-detection.xml`
 - `alerting-example.xml`
+- `archives-example.xml`
 
 They are illustrative portfolio examples, not drop-in production configurations.
 
@@ -161,11 +167,13 @@ They are illustrative portfolio examples, not drop-in production configurations.
 │   └── architecture.md
 ├── docs/
 │   ├── implementation-overview.md
+│   ├── agent-enrollment.md
 │   ├── file-integrity-monitoring.md
 │   ├── vulnerability-detection.md
 │   ├── mitre-attack.md
 │   ├── graylog-integration.md
 │   ├── misp-integration.md
+│   ├── email-alerting.md
 │   └── monitoring-analysis.md
 ├── labs/
 │   ├── README.md
@@ -176,11 +184,14 @@ They are illustrative portfolio examples, not drop-in production configurations.
 │   ├── geoip-enrichment.md
 │   ├── active-response.md
 │   ├── virustotal-integration.md
-│   └── index-lifecycle-management.md
+│   ├── index-lifecycle-management.md
+│   └── wazuh-archives.md
 ├── configs/wazuh/
+│   ├── agent-enrollment-example.xml
 │   ├── fim-example.xml
 │   ├── vulnerability-detection.xml
-│   └── alerting-example.xml
+│   ├── alerting-example.xml
+│   └── archives-example.xml
 ├── screenshots/
 │   ├── README.md
 │   ├── wazuh-overview-dashboard-sanitized.png
