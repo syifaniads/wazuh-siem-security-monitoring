@@ -14,6 +14,7 @@ flowchart LR
     C[GeoLite2 Databases] --> B
     B --> D[Enriched Event]
     D --> E[Country / City / ASN Context]
+    D --> F[Wazuh Maps]
 ```
 
 The internship notes used MaxMind GeoLite2 databases and the Wazuh Indexer GeoIP ingest module.
@@ -57,6 +58,24 @@ sudo chown -R wazuh-indexer:wazuh-indexer /usr/share/wazuh-indexer/modules/inges
 sudo systemctl restart wazuh-indexer
 ```
 
+## Wazuh Maps Validation
+
+The reviewed visual evidence shows a Documents layer configured with:
+
+```text
+Index pattern: wazuh-alerts-*
+Geospatial field: GeoLocation.location
+```
+
+A separate screenshot shows an enriched event plotted in the East Java area. This demonstrates that geographic fields were available to Wazuh Maps and could be used for visualization.
+
+```mermaid
+flowchart LR
+    A[wazuh-alerts-*] --> B[GeoLocation.location]
+    B --> C[Documents Layer]
+    C --> D[Wazuh Map]
+```
+
 ## Validation Approach
 
 1. Confirm GeoLite2 databases are present.
@@ -64,6 +83,21 @@ sudo systemctl restart wazuh-indexer
 3. Verify the GeoIP ingest module is available.
 4. Inspect events containing public source IP addresses.
 5. Confirm geographic fields are populated where data is available.
+6. Create a Wazuh Maps layer from `wazuh-alerts-*` using `GeoLocation.location`.
+7. Confirm enriched documents can be rendered as map points.
+
+## Suggested Portfolio Evidence
+
+Recommended paths once sanitized screenshots are added:
+
+```text
+screenshots/geoip/map-sanitized.png
+screenshots/geoip/layer-configuration-sanitized.png
+```
+
+Suggested caption:
+
+> **GeoIP-enriched event visualization.** Security alert data was plotted using the `GeoLocation.location` field to add geographic context during investigation.
 
 ## Security Value
 
