@@ -1,0 +1,16 @@
+<!-- Sanitized example for portfolio/lab use. Validate against your Wazuh version. -->
+<syscheck>
+  <disabled>no</disabled>
+  <scan_on_start>yes</scan_on_start>
+
+  <directories>/etc,/usr/bin,/usr/sbin</directories>
+  <directories>/bin,/sbin,/boot</directories>
+
+  <directories check_all="yes"
+               report_changes="yes"
+               realtime="yes">
+    /var/www/html
+  </directories>
+
+  <ignore>/etc/mtab</ignore>
+</syscheck>
