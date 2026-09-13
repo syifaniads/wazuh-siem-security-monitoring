@@ -151,6 +151,7 @@ They are illustrative portfolio examples, not drop-in production configurations.
 
 ```text
 .
+├── .gitignore
 ├── README.md
 ├── EVIDENCE.md
 ├── PORTFOLIO.md
@@ -194,6 +195,7 @@ They are illustrative portfolio examples, not drop-in production configurations.
 - [`screenshots/README.md`](screenshots/README.md) — documents the two published visual artifacts.
 - [`reports/README.md`](reports/README.md) — explains why raw monitoring reports are not public.
 - [`SECURITY.md`](SECURITY.md) — repository security and sanitization guidance.
+- [`.gitignore`](.gitignore) — blocks common secret files, raw logs/reports, key material, and local artifacts from accidental commits.
 - [`DISCLAIMER.md`](DISCLAIMER.md) — scope and reuse limitations.
 - [`PORTFOLIO.md`](PORTFOLIO.md) — concise project copy for a CV, website, LinkedIn, or application form.
 
