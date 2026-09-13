@@ -1,0 +1,15 @@
+<!-- Sanitized example for portfolio/lab use. Replace placeholders and validate before deployment. -->
+<ossec_config>
+  <global>
+    <email_notification>yes</email_notification>
+    <smtp_server><SMTP_RELAY></smtp_server>
+    <email_from><ALERT_SENDER></email_from>
+    <email_to><ALERT_RECIPIENT></email_to>
+    <email_maxperhour>12</email_maxperhour>
+  </global>
+
+  <alerts>
+    <log_alert_level>3</log_alert_level>
+    <email_alert_level>8</email_alert_level>
+  </alerts>
+</ossec_config>
